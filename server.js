@@ -63,6 +63,10 @@ app.get('/api/aniamls/:id', (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './zookeeper/public/index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);
 });
