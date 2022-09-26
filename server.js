@@ -55,8 +55,12 @@ app.get('/api/animals', (req, res) => {
 });
 
 app.get('/api/aniamls/:id', (req, res) => {
-    const result = findByID(req.params.id, animals);
-    res.json(result);
+    const result = findById(req.params.id, animals);
+    if (result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
 });
 
 app.listen(PORT, () => {
